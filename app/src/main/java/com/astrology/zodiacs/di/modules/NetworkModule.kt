@@ -1,0 +1,54 @@
+package com.astrology.zodiacs.di.modules
+
+import android.content.Context
+import com.astrology.zodiacs.data.api.ApiService
+import com.astrology.zodiacs.utils.UrlUtils
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
+import dagger.Module
+import dagger.Provides
+import okhttp3.Cache
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
+@Module
+class NetworkModule {
+
+    @Provides
+    @Singleton
+    internal fun providesGson(): Gson =
+        GsonBuilder().create() // returns gson
+
+    @Provides
+    @Singleton
+    fun providesOkHttpClient(context: Context): OkHttpClient {
+        val cacheSize = 10 * 1024 * 1024 // 10 MB
+        val cache = Cache(context.cacheDir, cacheSize.toLong())
+        val builder = OkHttpClient.Builder()
+        builder.cache(cache)
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        builder.addInterceptor(interceptor)
+        return builder.build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesRetrofit(gson: Gson?, httpClient: OkHttpClient?): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(UrlUtils.BASE_URL)
+            .client(httpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
+}

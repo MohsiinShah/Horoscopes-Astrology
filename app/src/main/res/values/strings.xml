@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Zodiac-horoscopes</string>
+
+    <string-array name="examples">
+        <item>Select Your Zodiac</item>
+        <item>Read daily, hourly and weekly horoscope</item>
+        <item>Astrology</item>
+    </string-array>
+
+    <string-array name="zodiacs">
+        <item>Aries</item>
+        <item>Aquarius</item>
+        <item>Cancer</item>
+        <item>Capricorn</item>
+        <item>Gemini</item>
+        <item>Leo</item>
+        <item>Libra</item>
+        <item>Pisces</item>
+        <item>Sagittarius</item>
+        <item>Scorpio</item>
+        <item>Taurus</item>
+        <item>Virgo</item>
+    </string-array>
+
+    <string-array name="ariesDetails">
+        <item>"Aries"</item>
+        <item>March 21 - April 19</item>
+    </string-array>
+
+    <string-array name="aquariusDetails">
+        <item>"Aquarius"</item>
+        <item>January 20 - February 18</item>
+    </string-array>
+
+    <string-array name="cancerDetails">
+        <item>"Cancer"</item>
+        <item>June 21 to July 22</item>
+    </string-array>
+
+    <string-array name="capricornDetails">
+        <item>"Capricorn"</item>
+        <item>December 22 - January 19</item>
+    </string-array>
+
+    <string-array name="geminiDetails">
+        <item>"Gemini"</item>
+        <item>May 21 - June 20</item>
+    </string-array>
+
+    <string-array name="leoDetails">
+        <item>"Leo"</item>
+        <item>July 22 – August 22</item>
+    </string-array>
+
+    <string-array name="libraDetails">
+        <item>"Libra"</item>
+        <item>September 23 - October 22</item>
+    </string-array>
+
+    <string-array name="piscesDetails">
+        <item>"Pisces"</item>
+        <item>February 19 - March 20</item>
+    </string-array>
+
+    <string-array name="sagittariusDetails">
+        <item>"Sagittarius"</item>
+        <item>November 22 - December 21</item>
+    </string-array>
+
+    <string-array name="scorpioDetails">
+        <item>"Scorpio"</item>
+        <item>October 23 - November 21</item>
+    </string-array>
+
+    <string-array name="virgoDetails">
+        <item>"Virgo"</item>
+        <item>August 23 - September 22</item>
+    </string-array>
+
+    <string-array name="taurusDetails">
+        <item>"Taurus"</item>
+        <item>April 20 - May 20</item>
+    </string-array>
+
+</resources>
