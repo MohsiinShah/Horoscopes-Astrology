@@ -7,23 +7,16 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.astrology.zodiacs.R
 import com.astrology.zodiacs.databinding.ActivityHoroscopeDetailBinding
 import com.astrology.zodiacs.ui.viewmodel.HoroscopeDetailsViewModel
 import com.skydoves.androidbottombar.BottomMenuItem
 import com.skydoves.androidbottombar.OnMenuItemSelectedListener
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class HoroscopeDetails : AppCompatActivity(), HasSupportFragmentInjector{
-
-
-    @Inject
-    lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+@AndroidEntryPoint
+class HoroscopeDetails : AppCompatActivity(){
 
     @Inject
     lateinit var viewModel: HoroscopeDetailsViewModel
@@ -33,7 +26,6 @@ class HoroscopeDetails : AppCompatActivity(), HasSupportFragmentInjector{
     private var zodiacSelected = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initDagger()
         backGroundColor()
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_horoscope_detail)
@@ -119,13 +111,5 @@ class HoroscopeDetails : AppCompatActivity(), HasSupportFragmentInjector{
 
     fun getZodiac(): String {
         return zodiacSelected
-    }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return fragmentDispatchingAndroidInjector
-    }
-
-    private fun initDagger() {
-        AndroidInjection.inject(this)
     }
 }

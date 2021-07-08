@@ -8,6 +8,9 @@ import com.google.gson.GsonBuilder
 
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,6 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {
 
@@ -25,7 +29,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(context: Context): OkHttpClient {
+    fun providesOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
         val cacheSize = 10 * 1024 * 1024 // 10 MB
         val cache = Cache(context.cacheDir, cacheSize.toLong())
         val builder = OkHttpClient.Builder()

@@ -5,11 +5,13 @@ import com.astrology.zodiacs.ui.viewmodel.DailyViewModel
 import com.astrology.zodiacs.ui.viewmodel.MonthlyViewModel
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 
+@InstallIn(FragmentComponent::class)
 @Module
 abstract class MonthlyFragmentModule {
 
-    @Module
     companion object{
         @Provides
         @JvmStatic

@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -68,16 +70,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    //Dagger
-    //noinspection GradleDependency
-    implementation "com.google.dagger:dagger:$dagger2_version"
-    //noinspection GradleDependency,OutdatedLibrary
-    implementation "com.google.dagger:dagger-android:$dagger2_version"
-    //noinspection GradleDependency
-    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
 
-    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+
 
     //Multidex
     implementation("com.android.support:multidex:1.0.3")

@@ -10,22 +10,13 @@ import com.astrology.zodiacs.data.repository.MainRepository
 
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
 class AppModule {
-
-    @Provides
-    @Singleton
-    internal fun provideApplication(app: MyApplication): Application {
-        return app
-    }
-
-    @Provides
-    @Singleton
-    fun providesContext(): Context {
-        return MyApplication.context
-    }
 
     @Provides
     @Singleton

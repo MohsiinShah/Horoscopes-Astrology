@@ -17,9 +17,10 @@ import com.astrology.zodiacs.ui.activities.HoroscopeDetails
 import com.astrology.zodiacs.ui.viewmodel.DailyViewModel
 import com.astrology.zodiacs.ui.viewmodel.WeeklyViewModel
 import com.astrology.zodiacs.utils.Status
-import dagger.android.support.AndroidSupportInjection
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class WeeklyFragment : Fragment() {
 
     @Inject
@@ -32,7 +33,6 @@ class WeeklyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        AndroidSupportInjection.inject(this)
         viewBinding = DataBindingUtil.inflate(inflater, R.layout.weekly_fragment, container, false)
         return viewBinding.root
     }

@@ -12,14 +12,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.astrology.zodiacs.R
 import com.astrology.zodiacs.databinding.MonthlyFragmentBinding
-import com.astrology.zodiacs.databinding.WeeklyFragmentBinding
 import com.astrology.zodiacs.ui.activities.HoroscopeDetails
 import com.astrology.zodiacs.ui.viewmodel.MonthlyViewModel
-import com.astrology.zodiacs.ui.viewmodel.WeeklyViewModel
 import com.astrology.zodiacs.utils.Status
-import dagger.android.support.AndroidSupportInjection
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MonthlyFragment : Fragment() {
 
     @Inject
@@ -32,7 +31,6 @@ class MonthlyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        AndroidSupportInjection.inject(this)
         viewBinding = DataBindingUtil.inflate(inflater, R.layout.monthly_fragment, container, false)
         return viewBinding.root
     }

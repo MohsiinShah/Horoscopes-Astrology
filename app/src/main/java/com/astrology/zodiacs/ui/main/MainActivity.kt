@@ -15,6 +15,7 @@ import com.astrology.zodiacs.R
 import com.astrology.zodiacs.databinding.ActivityMainBinding
 import com.astrology.zodiacs.ui.activities.HoroscopeDetails
 import com.astrology.zodiacs.ui.adapter.MainAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 class MainActivity : AppCompatActivity(), onClick {
 
